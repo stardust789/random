@@ -14,7 +14,7 @@ def nextUniform():
 f = open("data.dat", "w")
 fig = plt.figure()
 ax = fig.add_subplot(111,projection='3d')
-for i in range(10000):
+for i in range(1000):
     x1 = r_[nextUniform()]
     x2 = r_[nextUniform()]
     nlevel = 0.5 * np.random.normal(0,1,1)
