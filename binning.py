@@ -15,6 +15,7 @@ def binboundaries(l,h,s):
 
 def discretedata(d, b):
     newval = []
+    print "\n Original Data in list for binning....\n";
     print d
     #print b
     #t1 = array(x1)
@@ -38,6 +39,8 @@ def bootstrap(n, newx1, newx2, newy):
     bx1 = []
     bx2 = []
     by = []
+    my_data = []
+    print "\n***************************************************\n";
     print "Bootstrapped Sample with N = 50"
     for i in range(len(newx1)):
         r = random.randrange(1,50)
@@ -47,7 +50,16 @@ def bootstrap(n, newx1, newx2, newy):
     print bx1
     print bx2
     print by
-
+    f = open('sample.txt','w')
+    for item in range(len(bx1)):
+        f.write("%s " % bx1[item])
+        f.write("%s " % bx2[item])
+        f.write("%s\n" % by[item])
+        my_data.append(bx1[item])
+        my_data.append(bx2[item])
+    print "File Written successfully"
+    print my_data
+        
 x1 = []
 x2 = []
 y = []
@@ -73,6 +85,7 @@ binboundaries(blrange, bhrange+0.1, binsize)
 newx1 = discretedata(x1, boundary)
 newx2 = discretedata(x2, boundary)
 newy = discretedata(y, boundary)
+print "\nData after binning........................................\n";
 print newx1
 print newx2
 print newy
